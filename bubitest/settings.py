@@ -37,8 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leaderboard',
-    'djcelery',
+    'leaderboard', # custom
+    'djcelery', # celery for managing queues
+    'kombu.transport.django', # celery broker: django's DB layer
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,3 +104,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# celery settings
+BROKER_URL = 'django://'
+#app.conf.update(
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+#)
+
+
