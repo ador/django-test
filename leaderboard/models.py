@@ -3,12 +3,19 @@ from django.utils import timezone
 
 # Create your models here.
 
-class ScoreEntry(models.Model):
-    team = models.ForeignKey('auth.User')
+class BubiParticipant(models.Model):
+    auth_user = models.ForeignKey('auth.User')
+    first_email = "alma@iizz.com" # fake example
+    more_emails = []
+    submissions = []
+
+class Submission(models.Model):
+    submittedDataString = ""
+    team = models.ForeignKey('leaderboard.BubiParticipant')
+    submission_date = models.DateTimeField(default = timezone.now)
+    evaluated_date = models.DateTimeField(blank = True, null = True)
+    is_valid = False
     score = 0.0
-    is_last_valid = False
-    # ? dates ?
-    created_date = models.DateTimeField(default = timezone.now)
 
     def is_last_valid_score_of_team(self):
         return is_last_valid
@@ -19,3 +26,4 @@ class ScoreEntry(models.Model):
 
     def __str__(self):
         return self.team.name + " " + str(self.created_date)
+
