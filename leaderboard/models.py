@@ -9,6 +9,19 @@ class BubiParticipant(models.Model):
     more_emails = []
     submissions = []
 
+    def add_extra_email(self, email):
+        # TODO if check_email
+        self.more_emails.append(email)
+        self.save()
+
+    def add_submission(self, solution_file):
+        # TODO create Submission
+        self.submissions.append(solution_file)
+        self.save()
+
+    def __str__(self):
+        return self.first_email
+
 class Submission(models.Model):
     submittedDataString = ""
     team = models.ForeignKey('leaderboard.BubiParticipant')
