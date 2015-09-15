@@ -6,4 +6,4 @@ from .models import Submission, BubiParticipant
 
 def submission_list(request):
     entries = Submission.objects.filter(submission_date__lte=timezone.now()).order_by('submission_date')
-    return render(request, 'leaderboard/leaderboard.html', {'submissions': entries})
+    return render(request, 'leaderboard/leaderboard.html', {'submissions': entries, 'lenof':len(entries)})

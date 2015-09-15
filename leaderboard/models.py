@@ -38,5 +38,5 @@ class Submission(models.Model):
         self.save()
 
     def __str__(self):
-        return self.team.name + " " + str(self.created_date)
+        return self.team.auth_user.username + " " + str(self.submission_date)
 
