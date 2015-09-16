@@ -105,10 +105,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# celery settings
-BROKER_URL = 'django://'
+# celery settings 
+#BROKER_URL = 'django://'
 #app.conf.update(
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
+#CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend',
 #)
-
-
