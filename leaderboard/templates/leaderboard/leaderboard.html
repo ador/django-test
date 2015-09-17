@@ -6,9 +6,15 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <body>
-<h3>Hello :)</h3>
+<h2>Hello this is only a test :)</h2>
+
+<h2> dynamic from here</h2>
 
 {% load staticfiles %}
+
+<p>
+status: {{status}}
+</p>
 
 {{submissions}}
 {{lenof}}
@@ -27,5 +33,116 @@
                                 <h1><a  href="">{{ entry.team }}</a></h1>
                 </div>
 {%  endfor  %}
+
+
+<h3>New Data Scientists Wanted!</h3>
+
+<p>
+Participate in the BUdapest BIke Sharing (BUBI) Analytics Challenge Organized
+by the  "Big Data - Momentum" research group of the Hungarian Academy of
+Sciences (MTA SZTAKI) and the Centre for Budapest Transport (BKK).
+</p>
+
+<p>The Municipality of Budapest made a decision in 2008 to establish the
+public bike-sharing scheme with an initial location of 76 docking stations.
+The MOL BUBI system went live in September 2014 with 1100 bicycles and 76 docking stations.
+You can use BUBI with annual, semi-annual passes or one, three and seven
+day tickets, 24 hours every days.</p>
+
+<p>In the Analytics Challenge, we use 2 months of data to predict usage patterns in three tasks,
+two for predictive analytics and one for open research.</p>
+
+<h3>Tasks</h3>
+
+<h4>Task 1: Busiest link prediction</h4>
+
+Predict the busiest links (pairs of source, destination docking stations) for given evaluation periods (parts of certain days), excluding service travels.
+
+Predictions will be evaluated by NDCG by using the following formula
+
+
+<h4>Task  2: Maintenance prediction</h4>
+
+For each day in the evaluation set, predict the time when a docking station would become empty without service reallocation of the bikes.
+You may also predict "never", meaning that no service travels are required to the given station at the given day.
+
+Predictions will be evaluated by the RMSE of the logarithmic difference in seconds. 
+Error in the predictions of "never" count as a difference of 24 hours.
+
+
+<h4>Task 3: Open research task</h4>
+
+In this task, you may participate by submitting a very brief research plan.
+Goals may include, but not limited to, visualization or use of additional external data.
+You are expected to keep in regular contact with the organizers to share and discuss your findings.
+
+<h3>Data</h3>
+
+TODO : use list in html
+
+1. Bike use
+   * source station
+   * target station
+   * start time
+   * end time
+   * duration
+   * type of travel (service* / user)
+   * rental type by source
+     * terminal
+     * board computer
+     * Nextbike Office website
+     * MOL Bubi-application
+     * Nextbike application
+
+*By service travels, operators reallocate the bikes to make sure bikes are available at all stations all the time. In part of the evaluation data, service travels are removed.
+
+2. Hourly weather information
+   * temperature
+   * precipitation
+   * wind speed
+   * humidity
+* Weather information is available both for the training and the evaluation periods.
+
+3. Docking stations
+   * GPS
+   * standard capacity*
+   * number of bikes at the station every day at midnight
+*Note that even if the station is full, users may return additional bikes to the green extra stands located near the stations.
+
+4. User
+   * postal code of hometown
+   * type of pass
+
+The 2 months of time is divided into training and evaluation days. Data in the evaluation days is withheld for the organizers to evaluate the submissions.
+
+<h3>How to participate</h3>
+
+1. Register with your name, email and affiliation to the address
+bubi@ilab.sztaki.hu
+Indicate if you are a full or part time student, including university, your major (cs, maths, etc) and program (MSc etc).
+
+2. For Task 3, submit a very short research plan, explaining the way you want to use the data, the new insights that you expect from the analysis. Give sketches of the visualizations and descriptions of external data including availability, if applicable.
+
+3. Submit your solutions to bubi@ilab.sztaki.hu. A maximum of one submission per day is allowed.  Results will be published in the Leaderboard.
+
+<h3>Who may participate?</h3>
+
+We expect teams of B.Sc., M.Sc. or Ph.D. students of computer science, mathematics, physics, transportation, ..., but participation is open.  Money prizes have priority to go for the student teams.
+
+<h3>Prizes</h3>
+
+TODO
+
+Task 1 winner: HUF 100,000
+Task 2 winner: HUF 100,000
+Task 3 winner: HUF 100,000
+
+We reserve the right to not give prizes to one or more tasks; in this case we reallocate the prizes to other tasks.
+
+<hl/>
+<br />
+<hl/>
+
+
 </body>
 </html>
