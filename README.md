@@ -23,5 +23,5 @@ Then:
 ## Running the server and the celery worker
 
     python manage.py runserver
-    celery -A bubitest worker -l info
+    celery -A leaderboard worker -l info
 
