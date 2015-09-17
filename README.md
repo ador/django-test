@@ -22,6 +22,13 @@ Then:
     
 ## Running the server and the celery worker
 
+Run the server:
+
     python manage.py runserver
+
+Run celery:
     celery -A leaderboard worker -l info
+or:
+    python manage.py celery worker -B
+
 
